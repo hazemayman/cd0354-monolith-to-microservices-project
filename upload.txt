@@ -1,0 +1,14 @@
+docker --version # print the version for logging
+docker build -t udagram-api-feed ./udagram-api-feed
+docker tag udagram-api-feed donzoma09/udagram-api-feed:latest
+docker build -t udagram-api-user ./udagram-api-user
+docker tag udagram-api-user donzoma09/udagram-api-user:latest
+docker build -t udagram-frontend ./udagram-frontend
+docker tag udagram-frontend donzoma09/udagram-frontend:latest
+docker build -t udagram-reverseproxy ./udagram-api-feed
+docker tag udagram-reverseproxy donzoma09/udagram-reverseproxy:latest
+
+docker push donzoma09/udagram-frontend
+docker push donzoma09/udagram-reverseproxy
+docker push donzoma09/udagram-api-user
+docker push donzoma09/udagram-api-feed
